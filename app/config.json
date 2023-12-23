@@ -1,0 +1,15 @@
+{
+    "API_KEY_HEADER_NAME": "x-api-key",
+    "API_KEY_PASSPHRASE": "123456",
+    "OPENAI_API_KEY": "sk-XXX",
+    "LLM_MAX_RETRIES": 5,
+    "LLM_RETRY_DELAY": 1,
+    "C1": "",
+    "TXT_API_USED": "OpenAI",
+    "TXT_SELECTED_MODEL": "gpt-3.5-turbo-1106",
+    "TXT_FUNCTION_SELECTED_MODEL": "gpt-3.5-turbo-1106",
+    "TXT_TOOLS_GENERATION_ENABLE_CACHE": false,
+    "TXT_TOOLS_GENERATION_CACHE_DAYS": 14,
+    "MAX_TOKENS": 3500,
+    "MONGO_CONNECTION_STRING": "mongodb+srv://user:password@lws-cluster.xxx.mongodb.net/"
+}

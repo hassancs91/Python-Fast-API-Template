@@ -1,0 +1,16 @@
+aiohttp
+beautifulsoup4
+fastapi
+httpx
+motor
+openai
+pydantic
+pymongo
+Requests
+starlette
+tiktoken
+uvicorn
+slowapi
+instructor
+google-api-python-client
+boto3
