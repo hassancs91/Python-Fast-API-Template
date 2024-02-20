@@ -1,8 +1,8 @@
 from pymongo.errors import ConnectionFailure
 from motor.motor_asyncio import AsyncIOMotorClient
 import asyncio
-from .helpers import record_log, LogLevel, get_calling_function_name , get_calling_module_name
-from .config_loader import config
+from helpers import record_log, LogLevel, get_calling_function_name , get_calling_module_name
+from config_loader import config
 
 MONGO_CONNECTION_STRING = config.get("MONGO_CONNECTION_STRING")
 
@@ -26,7 +26,7 @@ class AsyncMongoDB:
             except ConnectionFailure as ex:
                 record_log(ex,get_calling_module_name(),get_calling_function_name(), LogLevel.ERROR)
         return False
-    
+
     async def connect(self, retries=5, delay=1):
         async with self._lock:
             if await self.is_connected():

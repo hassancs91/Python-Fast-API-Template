@@ -17,18 +17,18 @@ from slowapi.errors import RateLimitExceeded
 from starlette.requests import Request
 from starlette.types import ASGIApp
 
-from .routers import tools
-from .helpers import record_log, LogLevel,get_calling_function_name ,get_calling_module_name
+from routers import tools
+from helpers import record_log, LogLevel,get_calling_function_name ,get_calling_module_name
 
 
 
 # Assumed imports from your other modules
-from .routers import (
+from routers import (
     tools
 )
-from .mongo import establish_connection, mongo_db_instance
-from .logger_setup import initialize_logger
-from .config_loader import config
+from mongo import establish_connection, mongo_db_instance
+from logger_setup import initialize_logger
+from config_loader import config
 
 
 
@@ -99,7 +99,7 @@ class APIKeyMiddleware(BaseHTTPMiddleware):
                     status_code=401, content={"detail": "Invalid API key"}
                 )
         return await call_next(request)
-    
+
 app.add_middleware(APIKeyMiddleware)
 
 original_openapi = app.openapi
@@ -130,7 +130,7 @@ async def startup():
     except Exception as ex:
         record_log(ex,get_calling_module_name(),get_calling_function_name(), LogLevel.ERROR)
         #logger.error(f"Error occurred on startup_mongoObj.connect(): {e}", exc_info=True)
-        
+
 
 
 @app.on_event("shutdown")
@@ -149,7 +149,7 @@ async def read_health():
         # Assuming mongoObj has a method to check connection health
         #if not await mongo_db_instance.is_connected():
             #raise Exception("MongoDB is disconnected")
-        
+
         # Additional checks can go here
         return {"status": "healthy"}
 

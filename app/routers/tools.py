@@ -9,11 +9,11 @@ from pydantic import ValidationError
 from typing import List
 
 from pydantic import BaseModel
-from ..models.blog_models import BlogTitles
+from models.blog_models import BlogTitles
 
 
 # Local imports
-from ..services import llm_api as llm, prompts as pr
+from services import llm_api as llm, prompts as pr
 
 logger = logging.getLogger("AppLogger")
 router = APIRouter()
@@ -37,8 +37,8 @@ async def generate_blog_titles(user_topic: str,request: Request):
 
             prompt = pr.generate_blog_titles.format(topic=user_topic)
             result : BlogTitles = await llm.generate_with_response_model(prompt,1,BlogTitles)
-          
-      
+
+
             success_result = True
             return {
                 "success": True,
@@ -50,10 +50,10 @@ async def generate_blog_titles(user_topic: str,request: Request):
             logger.warning(
                 f"Failed during JSON decoding or validation. Retry count: {retry_count + 1}."
             )
-            
+
         except KeyError as e:
             logger.warning(f"Missing key in JSON: {e}")
-            
+
         except Exception as e:
             logger.error(e)
             continue
