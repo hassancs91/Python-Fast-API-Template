@@ -32,7 +32,6 @@ from .config_loader import config
 
 
 
-
 API_KEY_NAME = config["API_KEY_HEADER_NAME"]
 API_KEY = config["API_KEY_PASSPHRASE"]
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=True)
