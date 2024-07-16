@@ -7,9 +7,9 @@ from datetime import datetime, timedelta, timezone
 import logging
 
 # Relative imports
-from mongo import get_database
-from words_filter import check_user_input
-from config_loader import config
+from app.mongo import get_database
+from app.words_filter import check_user_input
+from app.config_loader import config
 from openai import AsyncOpenAI
 
 

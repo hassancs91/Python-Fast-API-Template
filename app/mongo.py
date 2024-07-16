@@ -1,8 +1,8 @@
 from pymongo.errors import ConnectionFailure
 from motor.motor_asyncio import AsyncIOMotorClient
 import asyncio
-from helpers import record_log, LogLevel, get_calling_function_name , get_calling_module_name
-from config_loader import config
+from app.helpers import record_log, LogLevel, get_calling_function_name , get_calling_module_name
+from app.config_loader import config
 
 MONGO_CONNECTION_STRING = config.get("MONGO_CONNECTION_STRING")
 

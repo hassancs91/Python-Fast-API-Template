@@ -9,11 +9,11 @@ from pydantic import ValidationError
 from typing import List
 
 from pydantic import BaseModel
-from models.blog_models import BlogTitles
+from app.models.blog_models import BlogTitles
 
 
 # Local imports
-from services import llm_api as llm, prompts as pr
+from app.services import llm_api as llm, prompts as pr
 
 logger = logging.getLogger("AppLogger")
 router = APIRouter()
